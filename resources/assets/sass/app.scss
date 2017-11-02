@@ -1,0 +1,44 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/* 
+	Tebogo Sewape CSS Added 
+*/
+
+img.fb-image-lg {
+	height: 200px !important ;
+}
+
+.fb-profile img.fb-image-lg {
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 50px;
+}
+
+.fb-image-profile {
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+@media (max-width:768px) {
+    
+	.fb-profile-text > h1 {
+	    font-weight: 700;
+	    font-size:16px;
+	}
+
+	.fb-image-profile {
+	    margin: -45px 10px 0px 25px;
+	    z-index: 9;
+	    width: 20%; 
+	}
+}
