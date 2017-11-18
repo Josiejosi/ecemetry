@@ -43,6 +43,7 @@ class PublicController extends Controller
 		$user_id = $user->id ;
 
         $data = [
+            'qrcode_url'            => url('/') . "/view/" .  $username,
             'user'                  => $user,
             'profile_pic'           => asset( $this->get_avatar($user_id) ),
         ] ;

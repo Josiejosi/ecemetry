@@ -53,7 +53,13 @@
                         <label for="surname" class="col-md-4 control-label">Surname</label>
 
                         <div class="col-md-6">
-                            <input id="surname" type="text" class="form-control" name="surname" value="{{ $user->surname }}" required autofocus>
+                            <input id="surname" 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="surname" 
+                                    data-provide="datepicker" 
+                                    data-date-format="dd-mm-yyyy"
+                                    value="{{ $user->surname }}" required>
 
                             @if ($errors->has('surname'))
                                 <span class="help-block">
@@ -228,6 +234,10 @@
 @endsection
 
 @section('js')
+
+    <script src="{{ asset( 'js/moment.min.js' ) }}"></script>
+    <script src="{{ asset( 'js/bootstrap-datepicker.min.js' ) }}"></script>
+    
     <script src="{{ asset( 'js/jquery-qrcode-0.14.0.min.js' ) }}"></script>
 
     <script>

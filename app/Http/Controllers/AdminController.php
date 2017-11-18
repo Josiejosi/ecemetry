@@ -74,4 +74,8 @@ class AdminController extends Controller
     public function create_user() {
         return view( "user" ) ;
     }
+
+    public function post_user(Request $request) {
+        
+    }
 }
