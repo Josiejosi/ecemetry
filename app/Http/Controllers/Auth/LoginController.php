@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if ( $user->hasRole( "delete_profile" ) ) {
+        if ( $user->hasRole( "Admin" ) ) {
 
             return redirect( "admin/dashboard" ) ;
 

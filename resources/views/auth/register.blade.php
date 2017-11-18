@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset( 'css/bootstrap-datepicker.min.css' ) }}">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -56,7 +60,14 @@
                             <label for="dob" class="col-md-4 control-label">Date of Birth</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="text" class="form-control" name="dob" value="{{ old('dob') }}" required autofocus>
+                                <input id="dob" 
+                                        type="text"  
+                                        data-provide="datepicker" 
+                                         data-date-format="dd-mm-yyyy"
+                                        class="form-control" 
+                                        name="dob" 
+                                        autocomplete="false" 
+                                        value="{{ old('dob') }}" required>
 
                                 @if ($errors->has('dob'))
                                     <span class="help-block">
@@ -115,4 +126,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset( 'js/moment.min.js' ) }}"></script>
+    <script src="{{ asset( 'js/bootstrap-datepicker.min.js' ) }}"></script>
 @endsection

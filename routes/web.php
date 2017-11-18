@@ -31,4 +31,24 @@ Route::get('admin/dashboard', 			'AdminController@index') ;
 Route::get('change_password', 			'AdminController@change_password') ;
 Route::get('edit/user/{user_id}', 		'AdminController@edit_user') ;
 Route::get('delete/user/{user_id}', 	'AdminController@delete_user') ;
-Route::get('block/user/{user_id}', 	'AdminController@block_user') ;
+Route::get('block/user/{user_id}', 	    'AdminController@block_user') ;
+
+Route::get('add_admin', function () {
+
+    $new_user               = \App\User::create([
+        'username'          => "Admin",
+        'name'              => "Mr",
+        'surname'           => "Admin",
+        'dob'               => "10-12-2017",
+        'cause_of_death'    => '',
+        'summary'           => '',
+        'is_active'         => 1,
+        'email'             => "AdminUser@gmail.com",
+        'password'          => bcrypt("450411"),
+    ]);
+
+    $role = \App\Role::whereName("Admin")->get() ;
+
+    if ( $new_user ) $new_user->assignRole( "Admin" ) ;
+
+});

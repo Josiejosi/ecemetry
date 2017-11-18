@@ -21,7 +21,7 @@
         <div class="row h-100">
           <div class="col-lg-12 my-auto">
             <div class="header-content mx-auto">
-              <h1 class="mb-12">e-cemetery - an online cemetery record keeping</h1>
+              <h1 class="mb-12">e-cemetery - an on-line cemetery record keeping</h1>
               <a href="{{ url('/login') }}" class="btn btn-outline btn-xl js-scroll-trigger">Login</a>
             </div>
           </div>
