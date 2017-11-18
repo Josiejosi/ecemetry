@@ -32,6 +32,7 @@ Route::get('change_password', 			'AdminController@change_password') ;
 Route::get('edit/user/{user_id}', 		'AdminController@edit_user') ;
 Route::get('delete/user/{user_id}', 	'AdminController@delete_user') ;
 Route::get('block/user/{user_id}', 	    'AdminController@block_user') ;
+Route::get('user/create', 	    'AdminController@create_user') ;
 
 Route::get('add_admin', function () {
 

@@ -41,6 +41,13 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        if ( $user->is_active == 0 ) {
+
+            session()->flash("account_blocked", "Sorry, Please not that this account is blocked.") ;
+            return redirect()->back() ;
+            
+        }
+
         if ( $user->hasRole( "Admin" ) ) {
 
             return redirect( "admin/dashboard" ) ;

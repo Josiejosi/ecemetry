@@ -70,4 +70,8 @@ class AdminController extends Controller
             return "defaults/background.jpg" ;
         }
     }
+
+    public function create_user() {
+        return view( "user" ) ;
+    }
 }

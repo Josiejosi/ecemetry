@@ -8,6 +8,8 @@
             
             <div class="col-sm-8">
 
+                <p><a href="{{ url('user/create') }}" class="btn btn-default">New User</a></p>
+
                 <div class="table-responsive">
                     <table class="table table-hover table-striped table-bordered table-condensed">
                         <thead>
@@ -51,14 +53,7 @@
                 
             </div>
 
-            <div class="col-sm-4">
-                <a href="{{ url( 'edit/user' ) }}/{{ $user->id }}" class="btn btn-info btn-block">
-                    <i class="fa fa-list-ol" aria-hidden="true"></i> View My Profile
-                </a>
-                <a href="{{ url( 'change_password' ) }}" class="btn btn-danger btn-block">
-                    <i class="fa fa-user" aria-hidden="true"></i> Change Password
-                </a>                
-            </div>
+            @include("includes.nav")
 
         </div>
 
@@ -72,10 +67,9 @@
         <div class="text-center center-block">
             <p class="txt-railway">- Profiling -</p>
             <br />
-            <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+            <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
 		</div>
 
 	</div>

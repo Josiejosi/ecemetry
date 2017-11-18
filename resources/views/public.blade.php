@@ -72,8 +72,8 @@
 	    	</div>
 
             <div class="col-sm-4">
-                <p><a href="{{ $qrcode_url }}">{{ $qrcode_url }}</a></p>
-                <p><img src="{!! QrCode::size(200)->generate( $qrcode_url ) !!}"></p>
+                <p class="text-center"><a href="{{ $qrcode_url }}">{{ $qrcode_url }}</a></p>
+                <div class="text-center" id="qrcode_url"></div>
                 <p>
                     <a class="btn btn-danger" target="_blank" href="{{ $pdf_url }}">
                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Save Profile
@@ -127,3 +127,16 @@
 	</div>
 
 @endsection
+
+    <script src="{{ asset( 'js/jquery-qrcode-0.14.0.min.js' ) }}"></script>
+
+    <script>
+        
+        $(function(){
+            var options = {
+                text: '{{ $qrcode_url }}'
+            };
+
+            $("#qrcode_url").qrcode(options);
+        });
+    </script>
