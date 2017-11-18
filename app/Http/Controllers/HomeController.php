@@ -41,10 +41,11 @@ class HomeController extends Controller
     
     public function profile_update( Request $request ) {
 
-        $user                       = User::find(auth()->user()->id)->update([
+        $user                       = User::find( $request->user_id )->update([
             'name'                  => $request->name,
             'surname'               => $request->surname,
             'dob'                   => $request->dob,
+            'dod'                   => $request->dod,
             'cause_of_death'        => isset( $request->cause_of_death ) ? $request->cause_of_death : '',
             'summary'               => isset( $request->summary ) ? $request->summary : '' ,
         ]) ;

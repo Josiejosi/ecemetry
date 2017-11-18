@@ -21,6 +21,8 @@
 	    		 <form class="form-horizontal" method="POST" action="{{ url('profile/upload') }}">
                     {{ csrf_field() }}
 
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+
                     <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                         <label for="username" class="col-md-4 control-label">Username</label>
 

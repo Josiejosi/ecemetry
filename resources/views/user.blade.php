@@ -11,6 +11,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Register New User</div>
                     <div class="panel-body">
+
+                        @if ( session()->has( "success_message" ) )
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                {{ session()->get( "success_message" )  }}
+                            </div>
+                        @endif
+
                         <form class="form-horizontal" method="POST" action="{{ url('user/store') }}">
                             {{ csrf_field() }}
 
@@ -131,6 +139,23 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                                <label for="role" class="col-md-4 control-label">Role</label>
+
+                                <div class="col-md-6">
+                                    <select type="text" class="form-control" name="role" value="{{ old('role') }}" required>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Profile User">Standard Profile</option>
+                                    </select>
+
+                                    @if ($errors->has('role'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('role') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 

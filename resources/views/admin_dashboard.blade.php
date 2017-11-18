@@ -17,6 +17,7 @@
                                 <th>Username</th>
                                 <th>Name</th>
                                 <th>Date Of Birth</th>
+                                <th>Date Of Death</th>
                                 <th>Cause Of Birth</th>
                                 <th>
                                     <p class="text-center"><i class="fa fa-gear"></i></p>
@@ -25,11 +26,12 @@
                         </thead>
                         <tbody>
                             @foreach($users as $user)
-                                @if ($user->is_active === 0 )
+                                @if ($user->is_active === 1 && !$user->hasRole( "Admin" ) )
                                     <tr>
                                         <td>{{$user->username}}</td>
                                         <td>{{$user->name}} {{$user->surname}}</td>
                                         <td>{{$user->dob}}</td>
+                                        <td>{{$user->dod}}</td>
                                         <td>{{$user->cause_of_death}}</td>
                                         <td>
                                             <div class="btn-group btn-group-sm">

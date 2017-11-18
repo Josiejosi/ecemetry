@@ -43,7 +43,7 @@ class AdminController extends Controller
     }
 
     public function block_user( $user_id ) {
-    	User::find($user_id)->update(['is_active', 1]) ;
+    	User::find($user_id)->update(['is_active', 0]) ;
     	return redirect( "admin/dashboard" ) ;
     }
 
@@ -76,6 +76,32 @@ class AdminController extends Controller
     }
 
     public function post_user(Request $request) {
-        
+
+
+        $this->validate($request, [
+            'username'          => 'required|unique:users|max:255',
+            'email'             => 'required|unique:users|max:255',
+            'name'              => 'required',
+            'surname'           => 'required',
+            'role'              => 'required',
+        ]);
+
+        $new_user               = User::create([
+            'username'          => $request->username,
+            'name'              => $request->name,
+            'surname'           => $request->surname,
+            'dob'               => isset( $request->dob ) ? $request->dob : '',
+            'dod'               => isset( $request->dod) ? $request->dod : '',
+            'cause_of_death'    => isset( $request->cause_of_death ) ? $request->cause_of_death : '',
+            'summary'           => isset( $request->summary ) ? $request->summary : '',
+            'is_active'         => 1,
+            'email'             => $request->email,
+            'password'          => bcrypt($request->password),
+        ]);
+
+        if ( $new_user ) $new_user->assignRole( $request->role ) ;
+
+        session()->flash("success_message", "Successfully created a new user.") ;
+        return redirect()->back() ;
     }
 }
