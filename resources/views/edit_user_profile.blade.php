@@ -67,11 +67,40 @@
                         <label for="dob" class="col-md-4 control-label">Date Of Birth</label>
 
                         <div class="col-md-6">
-                            <input id="dob" type="text" class="form-control" name="dob" value="{{ $user->dob }}" required autofocus>
+                            <input id="dob" 
+                                type="text" 
+                                class="form-control" 
+                                name="dob" 
+                                data-provide="datepicker" 
+                                data-date-format="dd-mm-yyyy"
+                                value="{{ $user->dob }}" required>
 
                             @if ($errors->has('dob'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('dob') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group{{ $errors->has('dod') ? ' has-error' : '' }}">
+                        <label for="dod" class="col-md-4 control-label">Date of Death</label>
+
+                        <div class="col-md-6">
+                            <input id="dod" 
+                                    type="text"  
+                                    data-provide="datepicker" 
+                                     data-date-format="dd-mm-yyyy"
+                                    class="form-control" 
+                                    name="dod" 
+                                    autocomplete="false" 
+                                    value="{{ old('dod') }}" required>
+
+                            @if ($errors->has('dod'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('dod') }}</strong>
                                 </span>
                             @endif
                         </div>

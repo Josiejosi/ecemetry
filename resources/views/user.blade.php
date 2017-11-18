@@ -77,6 +77,27 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('dod') ? ' has-error' : '' }}">
+                                <label for="dod" class="col-md-4 control-label">Date of Death</label>
+
+                                <div class="col-md-6">
+                                    <input id="dod" 
+                                            type="text"  
+                                            data-provide="datepicker" 
+                                             data-date-format="dd-mm-yyyy"
+                                            class="form-control" 
+                                            name="dod" 
+                                            autocomplete="false" 
+                                            value="{{ old('dod') }}" required>
+
+                                    @if ($errors->has('dod'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('dod') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
